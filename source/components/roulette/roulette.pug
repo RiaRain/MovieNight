@@ -1,0 +1,48 @@
+section.roulette#discover
+  .wrap
+    .head
+      h2
+        | Найдём фильм
+        br
+        | на сегодня
+      p.sub Расскажите, чего вам хочется.
+
+    .filters
+      div
+        h3 Жанр
+        .chips#fGenre
+          button.chip(type="button" aria-pressed="false") Все жанры
+          button.chip(type="button" aria-pressed="false") Драма
+          button.chip(type="button" aria-pressed="false") Комедия
+          button.chip(type="button" aria-pressed="false") Триллер
+          button.chip(type="button" aria-pressed="true") Фантастика
+          button.chip(type="button" aria-pressed="false") Хоррор
+          button.chip(type="button" aria-pressed="false") Мелодрама
+          button.chip(type="button" aria-pressed="false") Приключения
+
+      div
+        h3 Настроение
+        .chips#fMood
+          button.chip(type="button" aria-pressed="false") Что-то уютное
+          button.chip(type="button" aria-pressed="false") Взрыв мозга
+          button.chip(type="button" aria-pressed="false") Хочу смеяться
+          button.chip(type="button" aria-pressed="true") На нервах
+          button.chip(type="button" aria-pressed="false") Что-то трогательное
+
+      div
+        h3 Год выхода
+        .chips#fEra
+          button.chip(type="button" aria-pressed="true") Любой год
+          button.chip(type="button" aria-pressed="false") 2020-е
+          button.chip(type="button" aria-pressed="false") 2010-е
+          button.chip(type="button" aria-pressed="false") 2000-е
+          button.chip(type="button" aria-pressed="false") Классика
+
+    .surprise
+      button.go#go(type="button") УДИВИ МЕНЯ
+      span.hint#hint Под ваше настроение: 1 фильм.
+
+    .stage#stage(aria-live="polite")
+      .empty-state
+        p Ваш вечер начинается здесь.
+        span Выберите жанр и настроение, а мы найдём фильм.

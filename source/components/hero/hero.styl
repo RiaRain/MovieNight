@@ -1,0 +1,160 @@
+.hero
+  padding 0 20px
+  position relative
+  min-height calc(100vh - 68px)
+  min-height calc(100svh - 68px)
+  display flex
+  align-items center
+  overflow hidden
+  border-bottom 1px solid var(--line)
+
+  &::before
+    content ''
+    position absolute
+    inset 0
+    z-index 1
+    background linear-gradient(90deg, #111 0%, rgba(17, 17, 17, .94) 38%, rgba(17, 17, 17, .35) 100%), radial-gradient(ellipse at 85% 10%, rgba(242, 239, 233, .13), transparent 55%)
+
+.ghost
+  color #fff
+
+.beam
+  position absolute
+  top -10%
+  right 6%
+  width 55%
+  height 120%
+  z-index 0
+  transform rotate(14deg)
+  background linear-gradient(180deg, rgba(242, 239, 233, .10), transparent 70%)
+  clip-path polygon(46% 0, 54% 0, 100% 100%, 0 100%)
+  animation flick 6s steps(1) infinite
+
+@keyframes flick
+  0%, 100%
+    opacity 1
+  47%
+    opacity .8
+  49%
+    opacity 1
+  83%
+    opacity .88
+
+.collage
+  position absolute
+  right 3%
+  top 50%
+  width min(52vw, 680px)
+  height min(78vh, 620px)
+  transform translateY(-50%)
+  z-index 0
+
+  .p
+    position absolute
+    box-shadow 0 30px 60px rgba(0, 0, 0, .6)
+    animation rise 1.4s cubic-bezier(.2, .7, .2, 1) both
+
+    &:nth-child(1)
+      width 44%
+      left 0
+      top 14%
+      transform rotate(-5deg)
+
+    &:nth-child(2)
+      width 46%
+      left 30%
+      top 0
+      transform rotate(2deg)
+      animation-delay .18s
+
+    &:nth-child(3)
+      width 40%
+      right 0
+      top 30%
+      transform rotate(7deg)
+      animation-delay .36s
+
+@keyframes rise
+  from
+    opacity 0
+    translate 0 60px
+  to
+    opacity 1
+    translate 0 0
+
+.hero-copy
+  position relative
+  z-index 2
+  padding 70px 0 90px
+
+.kicker
+  font-size 13px
+  color var(--gray)
+  letter-spacing .04em
+  display flex
+  align-items center
+  gap 14px
+  margin-bottom 34px
+
+  &::before
+    content ''
+    width 44px
+    height 1px
+    background var(--red)
+
+h1
+  font 400 clamp(42px, 7vw, 108px)/1 var(--serif)
+  letter-spacing -.02em
+  max-width 11em
+
+  em
+    font-style italic
+    color var(--gray)
+
+.lede
+  max-width 430px
+  margin 34px 0 44px
+  font-size 19px
+  color #c9c5bd
+  font-weight 300
+
+.ctas
+  display flex
+  flex-wrap wrap
+  gap 16px
+
+.btn
+  display inline-flex
+  align-items center
+  justify-content center
+  padding 17px 34px
+  font-size 13px
+  font-weight 600
+  letter-spacing .1em
+  text-decoration none
+  border 1px solid var(--ivory)
+  transition .35s
+  position relative
+  overflow hidden
+
+  &.red
+    background var(--red)
+    border-color var(--red)
+    color var(--ivory)
+
+    &:hover
+      background #c13d54
+      border-color #c13d54
+      letter-spacing .14em
+
+  &.ghost:hover
+    background var(--ivory)
+    color var(--bg)
+
+.reel
+  position absolute
+  left 32px
+  bottom 26px
+  z-index 2
+  font italic 14px var(--serif)
+  color var(--gray)

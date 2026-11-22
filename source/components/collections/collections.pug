@@ -1,0 +1,95 @@
+
+-
+  const films = [
+    {
+      id: 14,
+      title: 'Дюна: Часть вторая',
+      year: 2024,
+      genre: 'Фантастика',
+      rating: '8.5',
+      description: 'Пол Атрейдес присоединяется к фременам на пустынной планете и идёт путём мести к судьбе, которой боится.',
+      poster: '../../assets/images/posters/placeholder.webp'
+    },
+    {
+      id: 2,
+      title: 'Паразиты',
+      year: 2019,
+      genre: 'Триллер',
+      rating: '8.5',
+      description: 'Бедная семья шаг за шагом проникает в жизнь богатого дома. Каждая вежливая ложь обходится дороже предыдущей.',
+      poster: '../../assets/images/posters/placeholder.webp'
+    },
+    {
+      id: 15,
+      title: 'Всё везде и сразу',
+      year: 2022,
+      genre: 'Фантастика',
+      rating: '7.8',
+      description: 'Уставшую владелицу прачечной затягивает в мультивселенную, где только она способна остановить крушение всего сущего.',
+      poster: '../../assets/images/posters/placeholder.webp'
+    },
+    {
+      id: 6,
+      title: 'Унесённые призраками',
+      year: 2001,
+      genre: 'Приключения',
+      rating: '8.6',
+      description: 'Девочка попадает в мир духов и купален, где должна работать, чтобы освободить родителей и найти дорогу домой.',
+      poster: '../../assets/images/posters/placeholder.webp'
+    },
+    {
+      id: 11,
+      title: 'Начало',
+      year: 2010,
+      genre: 'Фантастика',
+      rating: '8.8',
+      description: 'Вор, крадущий секреты из чужих снов, получает последнее задание: не украсть идею, а внедрить её.',
+      poster: '../../assets/images/posters/placeholder.webp'
+    },
+    {
+      id: 3,
+      title: 'Отель «Гранд Будапешт»',
+      year: 2014,
+      genre: 'Комедия',
+      rating: '8.1',
+      description: 'Легендарный консьерж и его преданный юный помощник оказываются втянуты в кражу бесценной картины и борьбу за семейное состояние.',
+      poster: '../../assets/images/posters/placeholder.webp'
+    }
+  ]
+
+mixin film-card(film)
+  article.card
+    .frame
+      img.poster(
+        src=film.poster
+        alt=`Постер фильма «${film.title}»`
+        loading="lazy"
+      )
+
+      .over
+        p= film.description
+
+      button.heart(
+        type="button"
+        data-id=film.id
+        aria-pressed="false"
+        aria-label=`Добавить «${film.title}» в избранное`
+      )
+        svg(viewBox="0 0 24 24")
+          path(d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.8-8 11-8 11z")
+
+    h4= film.title
+
+    .sm
+      span= `${film.year}, ${film.genre}`
+      b= `★ ${film.rating}`
+
+section#collections
+  .wrap
+    .head
+      h2 В тренде сегодня
+      p.sub Что смотрит клуб прямо сейчас.
+
+    .rail#rail(tabindex="0")
+      each film in films
+        +film-card(film)

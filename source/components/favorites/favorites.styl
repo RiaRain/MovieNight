@@ -1,0 +1,41 @@
+.favs
+  display grid
+  grid-template-columns repeat(auto-fill, minmax(200px, 1fr))
+  gap 34px 26px
+
+  .card
+    flex none
+
+.empty
+  display grid
+  grid-template-columns auto 1fr
+  gap 56px
+  align-items center
+  border 1px solid var(--line)
+  padding 56px
+  background linear-gradient(120deg, var(--bg2), transparent)
+
+  h3
+    font 400 clamp(28px, 3.6vw, 44px)/1.1 var(--serif)
+    margin-bottom 14px
+
+  p
+    color var(--gray)
+    max-width 420px
+    margin-bottom 26px
+
+.seats
+  display grid
+  grid-template-columns repeat(4, 34px)
+  gap 8px
+  transform perspective(500px) rotateX(18deg)
+
+  i
+    height 30px
+    border-radius 12px 12px 4px 4px
+    background #262626
+    border 1px solid var(--line)
+
+    &:nth-child(6)
+      background var(--red)
+      border-color var(--red)
