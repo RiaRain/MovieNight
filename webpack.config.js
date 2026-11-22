@@ -2,6 +2,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -36,7 +37,7 @@ module.exports = {
       {
         test: /\.styl$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'stylus-loader',
         ],
@@ -48,6 +49,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './source/pages/index.pug',
       filename: 'index.html',
+    }),
+
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
     }),
 
     new CopyWebpackPlugin({

@@ -6,6 +6,7 @@ import { getMovies } from './api.js';
 "use strict";
 const TRENDING=[14,2,15,6,11,3];
 const GENRES=["Все жанры","Драма","Комедия","Триллер","Фантастика","Хоррор","Мелодрама","Приключения"];
+const TYPES = ["Все", "Фильмы", "Мультфильмы"];
 const MOODS=["Что-то уютное","Взрыв мозга","Хочу смеяться","На нервах","Что-то трогательное"];
 const YEARS=["Любой год","2020-е","2010-е","2000-е","Классика"];
 const inEra=(y,e)=>e==="Любой год"||(e==="2020-е"&&y>=2020)||(e==="2010-е"&&y>=2010&&y<2020)||(e==="2000-е"&&y>=2000&&y<2010)||(e==="Классика"&&y<2000);
@@ -65,7 +66,7 @@ return `<img
 let favs=[];
 try{const v=JSON.parse(localStorage.getItem("movienight:favs")||"[]");if(Array.isArray(v))favs=v.filter(id=>byId(id))}catch(e){}
 const save=()=>{try{localStorage.setItem("movienight:favs",JSON.stringify(favs))}catch(e){}};
-let genre="Все жанры",mood=null,era="Любой год",pick=null,timer=null;
+let type="Все",genre="Все жанры",mood=null,era="Любой год",pick=null,timer=null;
 
 /* ---------- header, hero ---------- */
 $("#logoIcon").innerHTML=REEL;
@@ -74,7 +75,12 @@ burger.onclick=()=>{const o=nav.classList.toggle("open");burger.classList.toggle
 nav.onclick=()=>{nav.classList.remove("open");burger.classList.remove("on");burger.setAttribute("aria-expanded","false")};
 
 /* ---------- filters ---------- */
-const pool=()=>MOVIES.filter(m=>(genre==="Все жанры"||m.genres.includes(genre))&&(!mood||m.moods.includes(mood))&&inEra(m.year,era));
+const pool=()=>MOVIES.filter(m=>
+ (type==="Все"||(type==="Фильмы"&&m.type==="movie")||(type==="Мультфильмы"&&m.type==="animation"))&&
+ (genre==="Все жанры"||m.genres.includes(genre))&&
+ (!mood||m.moods.includes(mood))&&
+ inEra(m.year,era)
+);
 function chips(box,items,get,set){
  box.innerHTML=items.map(i=>`<button class="chip" aria-pressed="${get()===i}">${esc(i)}</button>`).join("");
  box.onclick=e=>{const b=e.target.closest(".chip");if(!b)return;set(b.textContent);chips(box,items,get,set);hint()};
@@ -83,6 +89,7 @@ function hint(){const n=pool().length;$("#hint").textContent="Под ваше н
 chips($("#fGenre"),GENRES,()=>genre,v=>genre=v);
 chips($("#fMood"),MOODS,()=>mood,v=>mood=mood===v?null:v);
 chips($("#fEra"),YEARS,()=>era,v=>era=v);
+chips($("#fType"),TYPES,()=>type,v=>type=v);
 hint();
 
 /* ---------- roulette ---------- */
