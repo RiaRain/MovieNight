@@ -5,7 +5,20 @@ html(lang="ru")
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
 
-    title MOVIE NIGHT — закрытый кинозал
+    title MOVIE NIGHT — подборка фильмов для идеального вечера
+
+    meta(
+      name="description"
+      content="Не знаете, что посмотреть сегодня? MOVIE NIGHT поможет выбрать фильм по жанру и настроению. Открывайте подборки, сохраняйте любимое и находите кино для своего вечера."
+    )
+
+    meta(name="theme-color" content="#0a0a0a")
+
+    meta(property="og:type" content="website")
+    meta(property="og:title" content="MOVIE NIGHT — кино для твоего вечера")
+    meta(property="og:description" content="Выбирай фильм по настроению, открывай подборки и сохраняй любимое.")
+    meta(property="og:url" content="https://riarain.github.io/MovieNight/")
+    meta(property="og:image" content="https://riarain.github.io/MovieNight/assets/images/posters/banner-poster-1.webp")
 
     link(rel="preconnect" href="https://fonts.googleapis.com")
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
@@ -14,6 +27,7 @@ html(lang="ru")
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Onest:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     )
+    link(rel="icon" type="image/svg+xml" href="assets/favicon.svg")
 
   body
     include ../header/header.pug
