@@ -3,65 +3,28 @@
 
   .collage#collage(aria-hidden="true")
     .p
-      svg.poster(viewBox="0 0 200 300" role="img" aria-label="Постер фильма «Начало»")
-        defs
-          linearGradient#g0(x1="0" y1="0" x2="0" y2="1")
-            stop(offset="0" stop-color="#0d121c")
-            stop(offset="1" stop-color="#0a0a0a")
-          linearGradient#g0s(x1="0" y1="0" x2="0" y2="1")
-            stop(offset=".55" stop-color="#000" stop-opacity="0")
-            stop(offset="1" stop-color="#000" stop-opacity=".75")
-
-        rect(width="200" height="300" fill="url(#g0)")
-        rect(x="20" y="190" width="160" height="10" fill="#6b8fb5" opacity="0.25")
-        rect(x="44" y="168" width="160" height="10" fill="#6b8fb5" opacity="0.38")
-        rect(x="68" y="146" width="160" height="10" fill="#6b8fb5" opacity="0.51")
-        rect(x="92" y="124" width="160" height="10" fill="#6b8fb5" opacity="0.64")
-        rect(x="116" y="102" width="160" height="10" fill="#6b8fb5" opacity="0.77")
-        rect(x="140" y="80" width="160" height="10" fill="#6b8fb5" opacity="0.9")
-        rect(width="200" height="300" fill="url(#g0s)")
-        rect(x="8" y="8" width="184" height="284" fill="none" stroke="#f2efe9" stroke-opacity=".35" stroke-width=".6")
-        text(x="100" y="226" text-anchor="middle" font-size="21" fill="#f2efe9" letter-spacing=".6" font-weight="700") НАЧАЛО
-        text(x="100" y="278" text-anchor="middle" font-size="8" fill="#f2efe9" fill-opacity=".7" letter-spacing="3" style="font-family:var(--sans)") 2010
+      img.poster(
+        src="../../assets/images/posters/banner-poster-1.webp"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+      )
 
     .p
-      svg.poster(viewBox="0 0 200 300" role="img" aria-label="Постер фильма «Отель «Гранд Будапешт»»")
-        defs
-          linearGradient#g1(x1="0" y1="0" x2="0" y2="1")
-            stop(offset="0" stop-color="#4b2a3d")
-            stop(offset="1" stop-color="#0a0a0a")
-          linearGradient#g1s(x1="0" y1="0" x2="0" y2="1")
-            stop(offset=".55" stop-color="#000" stop-opacity="0")
-            stop(offset="1" stop-color="#000" stop-opacity=".75")
-
-        rect(width="200" height="300" fill="url(#g1)")
-        path(d="M45 210V120a55 55 0 0 1 110 0v90z" fill="#d98fa8")
-        path(d="M70 210V125a30 30 0 0 1 60 0v85z" fill="#4b2a3d")
-        rect(width="200" height="300" fill="url(#g1s)")
-        rect(x="8" y="8" width="184" height="284" fill="none" stroke="#f2efe9" stroke-opacity=".35" stroke-width=".6")
-        text(x="100" y="202.9" text-anchor="middle" font-size="21" fill="#f2efe9" letter-spacing=".6" font-weight="700") ОТЕЛЬ
-        text(x="100" y="224.95" text-anchor="middle" font-size="21" fill="#f2efe9" letter-spacing=".6" font-weight="700") «ГРАНД
-        text(x="100" y="247" text-anchor="middle" font-size="21" fill="#f2efe9" letter-spacing=".6" font-weight="700") БУДАПЕШТ»
-        text(x="100" y="278" text-anchor="middle" font-size="8" fill="#f2efe9" fill-opacity=".7" letter-spacing="3" style="font-family:var(--sans)") 2014
+      img.poster(
+        src="../../assets/images/posters/banner-poster-2.webp"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+      )
 
     .p
-      svg.poster(viewBox="0 0 200 300" role="img" aria-label="Постер фильма «Прочь»")
-        defs
-          linearGradient#g2(x1="0" y1="0" x2="0" y2="1")
-            stop(offset="0" stop-color="#0c0c10")
-            stop(offset="1" stop-color="#0a0a0a")
-          linearGradient#g2s(x1="0" y1="0" x2="0" y2="1")
-            stop(offset=".55" stop-color="#000" stop-opacity="0")
-            stop(offset="1" stop-color="#000" stop-opacity=".75")
-
-        rect(width="200" height="300" fill="url(#g2)")
-        path(d="M20 120Q100 40 180 120Q100 200 20 120z" fill="none" stroke="#8a8a96" stroke-width="3")
-        circle(cx="100" cy="120" r="26" fill="#8a8a96")
-        circle(cx="100" cy="120" r="9" fill="#0c0c10")
-        rect(width="200" height="300" fill="url(#g2s)")
-        rect(x="8" y="8" width="184" height="284" fill="none" stroke="#f2efe9" stroke-opacity=".35" stroke-width=".6")
-        text(x="100" y="226" text-anchor="middle" font-size="21" fill="#f2efe9" letter-spacing=".6" font-weight="700") ПРОЧЬ
-        text(x="100" y="278" text-anchor="middle" font-size="8" fill="#f2efe9" fill-opacity=".7" letter-spacing="3" style="font-family:var(--sans)") 2017
+      img.poster(
+        src="../../assets/images/posters/banner-poster-3.webp"
+        alt=""
+        loading="eager"
+        fetchpriority="high"
+      )
 
   .wrap.hero-copy
     p.kicker Закрытый кинозал на сегодняшний вечер

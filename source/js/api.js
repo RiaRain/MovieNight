@@ -9,32 +9,28 @@ export async function getMovie(imdbId) {
   }
 
   const data = await response.json();
-
   return data.meta;
 }
 
-
-export async function getMovies(movies) {
-  return Promise.all(
+export async function getMovies(movies, onMovieLoaded) {
+  await Promise.all(
     movies.map(async movie => {
-      if (!movie.imdbId) return movie;
+      if (!movie.imdbId) return;
 
       try {
         const data = await getMovie(movie.imdbId);
 
-        return {
+        const updatedMovie = {
           ...movie,
-          title: movie.title,
           year: Number(data.year) || movie.year,
           rating: Number(data.imdbRating) || movie.rating,
           runtime: parseInt(data.runtime, 10) || movie.runtime,
-          desc: movie.desc,
-          genres: movie.genres,
           posterUrl: data.poster || null
         };
+
+        onMovieLoaded?.(updatedMovie);
       } catch (error) {
         console.error(`Не удалось загрузить: ${movie.title}`, error);
-        return movie;
       }
     })
   );

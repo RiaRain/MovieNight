@@ -69,7 +69,6 @@ let genre="Все жанры",mood=null,era="Любой год",pick=null,timer=
 
 /* ---------- header, hero ---------- */
 $("#logoIcon").innerHTML=REEL;
-$("#collage").innerHTML=[11,3,7].map(id=>`<div class="p">${poster(byId(id))}</div>`).join("");
 const burger=$("#burger"),nav=$("#nav");
 burger.onclick=()=>{const o=nav.classList.toggle("open");burger.classList.toggle("on",o);burger.setAttribute("aria-expanded",o)};
 nav.onclick=()=>{nav.classList.remove("open");burger.classList.remove("on");burger.setAttribute("aria-expanded","false")};
@@ -165,18 +164,21 @@ document.addEventListener("click",e=>{
 });
 renderFavs();
 
-getMovies(MOVIES).then(updatedMovies => {
-  MOVIES.splice(0, MOVIES.length, ...updatedMovies);
+getMovies(MOVIES, updated => {
+  const index = MOVIES.findIndex(movie => movie.id === updated.id);
 
-  // Обновляем карточки и блоки с фильмами
-  $("#rail").innerHTML = TRENDING.map(id => card(byId(id))).join("");
-  $("#collage").innerHTML = [11, 3, 7]
-    .map(id => `<div class="p">${poster(byId(id))}</div>`)
-    .join("");
+  if (index !== -1) {
+    MOVIES[index] = updated;
+  }
 
-  renderFavs();
+  if (TRENDING.includes(updated.id)) {
+    $("#rail").innerHTML = TRENDING.map(id => card(byId(id))).join("");
+  }
+
+  if (favs.includes(updated.id)) {
+    renderFavs();
+  }
+
   hint();
-
-  console.log("Каталог обновлён данными API");
 });
 })();
