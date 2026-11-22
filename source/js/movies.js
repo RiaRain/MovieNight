@@ -139,7 +139,7 @@ function renderFavs(){
  $("#favSub").textContent=favs.length?"Сохранено: "+favs.length+". Ваш список фильмов хранится в этом браузере.":"Здесь живут сохранённые фильмы.";
  $("#favLink").innerHTML="Избранное"+(favs.length?`<span class="count">${favs.length}</span>`:"");
  $("#favBox").innerHTML=favs.length?
-  `<div class="favs">${favs.map(id=>card(byId(id))).join("")}</div>`:
+  `<div class="rail">${favs.map(id=>card(byId(id))).join("")}</div>`:
   `<div class="empty">
     <div class="seats" aria-hidden="true">${"<i></i>".repeat(12)}</div>
     <div><h3>В зале включили свет, а ваше место всё ещё свободно.</h3>
